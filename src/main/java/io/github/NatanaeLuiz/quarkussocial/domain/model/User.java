@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User extends PanacheEntityBase { //PanacheEntity equivalente ao JPA
+public class User { //PanacheEntity equivalente ao JPA
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
