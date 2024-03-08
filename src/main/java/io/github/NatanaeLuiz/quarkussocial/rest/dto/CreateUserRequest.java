@@ -1,4 +1,4 @@
-package io.github.NatanaeLuiz.quarkussocial.ret.dto;
+package io.github.NatanaeLuiz.quarkussocial.rest.dto;
 
 public class CreateUserRequest {
 

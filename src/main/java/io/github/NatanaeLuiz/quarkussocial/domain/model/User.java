@@ -1,10 +1,12 @@
 package io.github.NatanaeLuiz.quarkussocial.domain.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends PanacheEntityBase { //PanacheEntity equivalente ao JPA
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
