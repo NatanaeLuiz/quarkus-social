@@ -35,9 +35,9 @@ public class UserResource {
 
         Set<ConstraintViolation<CreateUserRequest>> violations = validator.validate(userRequest);
         if (!violations.isEmpty()) {
-            ResponseError erroMessage = ResponseError.createFromValidation(violations);
-
-            return Response.status(400).entity(erroMessage).build();
+            return ResponseError
+                    .createFromValidation(violations)
+                    .withStatusCode(ResponseError.UNPROCESSABLE_ENTITY_STATUS);
         }
 
         User user = new User();

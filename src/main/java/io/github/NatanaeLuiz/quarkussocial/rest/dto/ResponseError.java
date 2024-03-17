@@ -1,6 +1,7 @@
 package io.github.NatanaeLuiz.quarkussocial.rest.dto;
 
 import jakarta.validation.ConstraintViolation;
+import jakarta.ws.rs.core.Response;
 
 import java.util.Collection;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class ResponseError {
 
+    public static final int UNPROCESSABLE_ENTITY_STATUS = 422;
     private String message;
     private Collection<FieldError> erros;
 
@@ -46,5 +48,9 @@ public class ResponseError {
 
     public void setErros(Collection<FieldError> erros) {
         this.erros = erros;
+    }
+
+    public Response withStatusCode(int code) {
+        return Response.status(code).entity(this).build();
     }
 }
