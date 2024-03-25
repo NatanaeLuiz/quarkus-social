@@ -29,6 +29,10 @@ public class FollowerResource {
     @Transactional
     public Response followUser(@PathParam("userId") Long userId, FollowerRequest request){
 
+        if (userId.equals(request.getFollowerId())){
+            return Response.status(Response.Status.CONFLICT).entity("Você não pode seguir a si mesmo").build();
+        }
+
         var user = userRepository.findById(userId); //Busca do id do usuario a ser seguido
 
         if(user == null) { //verifica se o usuario existe
